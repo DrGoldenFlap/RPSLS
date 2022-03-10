@@ -1,4 +1,6 @@
-export class Player {
+ "use strict"
+ 
+ class User {
     constructor(name){
         this.name = name;
         this.win = 0;
@@ -7,25 +9,31 @@ export class Player {
     }
     
 }
-export class Computer extends Player {
+class Computer extends User {
     constructor(name){
         super(name);
         }
     chooseGestur(){
        this.getsturInput = this.getsturList[Math.floor((Math.random() *this.getsturList.length))];
+    console.log(this.getsturInput)
     }
+
 }
 
-export class Human extends Player{
+class Human extends User{
     constructor(name){
         super(name);
     }
     chooseGestur(){
-        this.getsturInput = this.getsturList[prompt("Choose your weapon. Rock, Paper, Scissors, Lizards, Spock.").toLowerCase];
+        let input = parseInt(prompt("Choose gesture Rock[0], Paper[1], Scissors[2], Lizards[3], Spock[4]."));
+        this.getsturInput = this.getsturList[input];
     }
-    chooseName(){
-        this.name = prompt("What is your name");
-    }
+
 }
 
-
+module.exports = {
+    User,
+    Computer,
+    Human,
+}
+console.log(module)
