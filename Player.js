@@ -1,4 +1,4 @@
-class Player {
+export class Player {
     constructor(name){
         this.name = name;
         this.win = 0;
@@ -7,7 +7,7 @@ class Player {
     }
     
 }
-class Computer extends Player {
+export class Computer extends Player {
     constructor(name){
         super(name);
         }
@@ -16,9 +16,16 @@ class Computer extends Player {
     }
 }
 
-class Human extends Player{
+export class Human extends Player{
     constructor(name){
         super(name);
     }
-    this.getsturInput = this.getsturList
+    chooseGestur(){
+        this.getsturInput = this.getsturList[prompt("Choose your weapon. Rock, Paper, Scissors, Lizards, Spock.").toLowerCase];
+    }
+    chooseName(){
+        this.name = prompt("What is your name");
+    }
 }
+
+
