@@ -1,5 +1,6 @@
 "use strict"
 
+const prompt = require ('prompt-sync')();
 const {Computer, Human} = require ("./Player")
 
 class Game{
@@ -25,8 +26,8 @@ class Game{
         10. Rock crushes scissors `)
     }
     gameType(){
-        let input = prompt("What type of game would you like to play? Single or Multiplayer")
-        if(input == "Single"){
+        let input = prompt("What type of game would you like to play? Single or Multiplayer: ").toLowerCase
+        if(input == "single"){
         this.player2 = new Computer();         
         }
         else{
@@ -37,6 +38,8 @@ class Game{
     gameLogic(){
         this.player1.chooseGestur();
         this.player2.chooseGestur();
+        console.log(`Player 1 Chose ${this.player1.getsturInput}`);
+        console.log(`Player 2 Chose ${this.player2.getsturInput}`);
         if(this.player1.getsturInput === this.player2.getsturInput){
             console.log("We have a tie!")
         }
@@ -114,9 +117,46 @@ class Game{
         }
         else if(this.player1.getsturInput === "Spock"){
             if(this.player2.getsturInput === "Rock"){
-                this.player1.win ++
+                this.player1.win ++;
+                console.log("Player 1 wins!");
+            }
+            else if(this.player2.getsturInput === "Paper"){
+                this.player2.win ++;
+                console.log("Player 2 wins!")
+            }
+            else if(this.player2.getsturInput === "Scissors"){
+                this.player1.win ++;
+                console.log("Player 1 win!");
+            }
+            else if(this.player2.getsturInput === "Lizards"){
+                this.player2.win ++;
+                console.log("Player 2 wins!");
             }
         }
 
     }
+    winGame(){
+        if(this.player1.win < 3 && this.player2.win < 3){
+            return this.gameLogic();
+        }
+        else if(this.player1.win == 3){
+            console.log("Player 1 has won!");
+            return this.gameType()
+        }
+        else if(this.player2.win == 3){
+            console.log("Player 2 has won!")
+            return this.gameType()
+        }
+   }
+   playGame(){
+       this.greetings();
+       this.rules();
+       this.gameType();
+       this.gameLogic();
+       this.winGame();
+   }
+}
+
+module.exports = {
+    Game
 }

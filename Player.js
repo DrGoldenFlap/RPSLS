@@ -1,4 +1,6 @@
  "use strict"
+
+ const prompt = require ('prompt-sync')();
  
  class User {
     constructor(name){
