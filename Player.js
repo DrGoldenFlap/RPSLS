@@ -36,4 +36,4 @@ module.exports = {
     Computer,
     Human,
 }
-console.log(module)
+

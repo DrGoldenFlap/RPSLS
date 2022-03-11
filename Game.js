@@ -40,15 +40,81 @@ class Game{
         if(this.player1.getsturInput === this.player2.getsturInput){
             console.log("We have a tie!")
         }
-        else if( this.player1.getsturInput === [0]){
-            if(this.player2.getsturInput === [1]){
-                console.log("Player 2 wins!")
+        else if( this.player1.getsturInput === "Rock"){
+            if(this.player2.getsturInput === "Paper"){
+                this.player2.win ++;
+                console.log("Player 2 wins!");
             }
-            else if(this.player2.getsturInput === [2]){
+            else if(this.player2.getsturInput === "Scissors"){
+                this.player1.win ++;
+                console.log("Player 1 wins!");
+            }
+            else if(this.player2.getsturInput === "Lizards"){
+                this.player1.win ++;
+                console.log("Player 1 Wins!");
+            }
+            else if(this.player2.getsturInput === "Spock"){
+                this.player2.win ++;
+                console.log("Player 2 wins!");
+            }
+        }
+        else if(this.player1.getsturInput === "Paper"){
+            if(this.player2.getsturInput === "Rock"){
+                this.player1.win ++;
+                console.log("Player 1 wins!");
+            }
+            else if(this.player2.getsturInput === "Scissors"){
+                this.player2.win ++;
+                console.log("Player 2 wins!");
+            }
+            else if(this.player2.getsturInput === "Lizards"){
+                this.player2.win ++;
+                console.log("Player 2 wins!");
+            }
+            else if(this.player2.getsturInput === "Spock"){
+                this.player1.win ++;
+                console.log("Player 1 wins!");
+            }
+        }
+        else if(this.player1.getsturInput === "Scissors"){
+            if(this.player2.getsturInput === "Rock"){
+                this.player2.win ++;
+                console.log("Player 2 wins!");
+            }
+            else if(this.player2.getsturInput === "Paper"){
+                this.player1.win ++;
+                console.log("Player 1 wins!");
+            }
+            else if(this.player2.getsturInput === "Lizards"){
+                this.player1.win ++;
                 console.log("Player 1 wins!")
             }
-            else if(this.player2.getsturInput === [3]){
-                console.log("Player 1 Wins!")
+            else if(this.player2.getsturInput === "Spock"){
+                this.player1.win ++;
+                console.log("Player 2 wins!")
+            }
+        }
+        else if(this.player1.getsturInput === "Lizards"){
+            if(this.player2.getsturInput === "Rock"){
+                this.player2.win ++;
+                console.log("Player 2 wins");
+            }
+            else if(this.player2.getsturInput === "Paper"){
+                this.player1.win ++;
+                console.log("Player 1 wins");
+            }
+            else if(this.player2.getsturInput === "Scissors"){
+                this.player2.win ++;
+                console.log("Player 2 wins!")
+            }
+            else if(this.player2.getsturInput === "Spock"){
+                this.player1.win ++;
+                console.log("Player 1 wins!")
+            }
+        }
+        else if(this.player1.getsturInput === "Spock"){
+            if(this.player2.getsturInput === "Rock"){
+                this.player1.win ++
             }
         }
 
